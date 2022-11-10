@@ -64,9 +64,11 @@ DROP TABLE <tablename>; just like databases. No prompts to confirm so watch out.
 
 Insert a cat:
 > INSERT INTO cats (name, age) VALUES ('Blue Steele', 5);
+
 And another:
+
 > INSERT INTO cats (name, age) VALUES ('Jenkins', 7);
-<br>
+
 Multi-inserts are useful as well, just need to be consistent with the order of columns:
 
 > INSERT INTO cats (name, age) 
@@ -74,3 +76,4 @@ VALUES
   ('Meatball', 5), 
   ('Turkey', 1), 
   ('Potato Face', 15);
+
