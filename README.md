@@ -130,3 +130,34 @@ Combine NOT NULL and DEFAULT:
 > );
 
 ---
+
+### KEYS
+
+We use a primary key e.g. CatID to make each entry unique. It's an unique identifier. ___ They cannot be NULL!!!___
+
+-- Another option would be:
+
+> CREATE TABLE unique_cats2 (
+>	 cat_id INT,
+>     name VARCHAR(100) NOT NULL,
+>     age INT NOT NULL,
+>     PRIMARY KEY (cat_id)
+> );
+
+
+-- AUTO-INCREMENT is useful here! It starts at 1 by default.
+
+> CREATE TABLE unique_cats3 (
+>    cat_id INT AUTO_INCREMENT,
+>    name VARCHAR(100) NOT NULL,
+>    age INT NOT NULL,
+>    PRIMARY KEY (cat_id)
+> );
+
+
+
+
+
+
+
+
