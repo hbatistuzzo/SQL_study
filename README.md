@@ -11,17 +11,17 @@
 
 ---------
 
-# The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert
+## The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert
 
-## Core and Installation
+### Core and Installation
 
 <p> Your app --> (R)DBMS --> Database</p>
 
 > The (R)DBMS, (Relational) Database Management System would be PostgreSQL, Oracle, MySQL etc.
 
-<p>We can define a Database as a __structured set of computerizared data with an accessible interface__.</p>
+<p>We can define a Database as a ___structured set of computerized data with an accessible interface___.</p>
 
 
 <p>Cool I didnt need to uninstall python to make this work. Great!</p>
 
-## Creating Databases and Tables
+### Creating Databases and Tables
