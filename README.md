@@ -29,8 +29,8 @@
 To list available databases: ___show databases___;
 
 To create: ___CREATE DATABASE <name>;___
-To delete: ___DROP DATABASE <name>;___ * CAREFUL WITH THIS, it will delete everything *
-To use: ___USE <name>;___ | ___SELECT database();___ should confirm that its working.
+To delete: ___DROP DATABASE <name>;___ * CAREFUL WITH THIS, it will delete everything * <br>
+To use: ___USE <name>;___ | ___SELECT database();___ should confirm that its working. <br>
 
 ### Tables
 
@@ -45,13 +45,15 @@ There is a whole bunch of Numeric Types, String Types and Date Types. Some need 
 
 ### Create New Table:
 
-| Syntax                   | Example           |   |   |   |
-|--------------------------|-------------------|---|---|---|
-| CREATE TABLE <tablename> | CREATE TABLE cats |   |   |   |
-| (                        | (                 |   |   |   |
-| column_name data_type    | name VARCHAR(100) |   |   |   |
-| column_name data_type    | age INT           |   |   |   |
-| );                       | );                |   |   |   |
+| Syntax                   | Example           |
+|--------------------------|-------------------|
+| CREATE TABLE <tablename> | CREATE TABLE cats |
+| (                        | (                 |
+| column_name data_type    | name VARCHAR(100) |
+| column_name data_type    | age INT           |
+| );                       | );                |
+<br>
+It can be verified with SHOW TABLES or even SHOW COLUMNS FROM <tablename> or even DESC <tablename> (from describe). Not realy useful in GUI. <br>
 
 
 
