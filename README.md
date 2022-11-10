@@ -1,8 +1,4 @@
-# SQL_study
- 
-
-1) Select OK
-2) Where OK
+# Tips
 3) Wildcards are extremely useful
 	- SELECT * from movie_tables WHERE title = "story" will find a movie whose title is EXACTLY story
 	- SELECT * from movie_tables WHERE title LIKE "story" will find a movie whose title is either story or Story or STORY etc
@@ -15,5 +11,17 @@
 
 ---------
 
-TThe Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert
+# The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert
 
+## Core and Installation
+
+<p> Your app --> (R)DBMS --> Database</p>
+
+> The (R)DBMS, (Relational) Database Management System would be PostgreSQL, Oracle, MySQL etc.
+
+<p>We can define a Database as a __structured set of computerizared data with an accessible interface__.</p>
+
+
+<p>Cool I didnt need to uninstall python to make this work. Great!</p>
+
+## Creating Databases and Tables
