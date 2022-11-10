@@ -13,6 +13,8 @@
 
 ## The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert
 
+---
+
 ### Core and Installation
 
 <p> Your app --> (R)DBMS --> Database</p>
@@ -24,6 +26,8 @@
 
 <p>Cool I didnt need to uninstall python to make this work. Great!</p>
 
+---
+
 ### Manipulating Databases
 
 To list available databases: ___show databases___;
@@ -32,16 +36,22 @@ To create: ___CREATE DATABASE <name>;___
 To delete: ___DROP DATABASE <name>;___ * CAREFUL WITH THIS, it will delete everything * <br>
 To use: ___USE <name>;___ | ___SELECT database();___ should confirm that its working. <br>
 
+---
+
 ### Tables
 
 Tables hold the data:
 > A collection of related data held in a structured format within a database.
+
+---
 
 ### Data Types
 
 There is a whole bunch of Numeric Types, String Types and Date Types. Some need caution:
 - INT: range from -2,147,483,647 to 2,147,483,647
 - VARCHAT: a variable-length string e.g. 'coffee' or '-9999' or 'aASDJH daksjhdasj'. We can specify a maximum of chars e.g. varchar(100) to limit size.
+
+---
 
 ### Create New Table:
 
@@ -58,7 +68,7 @@ It can be verified with SHOW TABLES or even SHOW COLUMNS FROM <tablename> or eve
 
 DROP TABLE <tablename>; just like databases. No prompts to confirm so watch out.
 
-
+---
 
 ### Inserting data into tables:
 
@@ -88,6 +98,7 @@ ___good practice: always use single quotes!___
 
 ... when needed e.g. ___INSERT INTO shops(name) VALUES 'mario's pizza'___ what you need is ___INSERT INTO shops(name) VALUES 'mario\'s pizza'___
 
+---
 
 ### To set default values:
 
@@ -117,3 +128,5 @@ Combine NOT NULL and DEFAULT:
 >     name VARCHAR(20) NOT NULL DEFAULT 'unnamed',    
 >     age INT NOT NULL DEFAULT 99 
 > );
+
+---
