@@ -124,8 +124,8 @@ Or a nameless, ageless cat:
 
 Combine NOT NULL and DEFAULT:
 
-> CREATE TABLE cats4  (    
->     name VARCHAR(20) NOT NULL DEFAULT 'unnamed',    
+> CREATE TABLE cats4  (		
+>     name VARCHAR(20) NOT NULL DEFAULT 'unnamed',	
 >     age INT NOT NULL DEFAULT 99 
 > );
 
@@ -137,21 +137,21 @@ We use a primary key e.g. CatID to make each entry unique. It's an unique identi
 
 -- Another option would be:
 
-> CREATE TABLE unique_cats2 (
-> 	cat_id INT,
-> 	name VARCHAR(100) NOT NULL,
-> 	age INT NOT NULL,
-> 	PRIMARY KEY (cat_id)
+> CREATE TABLE unique_cats2 (	
+> 	cat_id INT,	
+> 	name VARCHAR(100) NOT NULL,	
+> 	age INT NOT NULL,	
+> 	PRIMARY KEY (cat_id)	
 > );
 
 
 -- AUTO-INCREMENT is useful here! It starts at 1 by default.
 
-> CREATE TABLE unique_cats3 (
-> 	cat_id INT AUTO_INCREMENT,
-> 	name VARCHAR(100) NOT NULL,
-> 	age INT NOT NULL,
-> 	PRIMARY KEY (cat_id)
+> CREATE TABLE unique_cats3 (	
+> 	cat_id INT AUTO_INCREMENT,	
+> 	name VARCHAR(100) NOT NULL,	
+> 	age INT NOT NULL,	
+> 	PRIMARY KEY (cat_id)	
 > );
 
 
