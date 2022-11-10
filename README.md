@@ -68,6 +68,7 @@ And another:
 > INSERT INTO cats (name, age) VALUES ('Jenkins', 7);
 <br>
 Multi-inserts are useful as well, just need to be consistent with the order of columns:
+
 > INSERT INTO cats (name, age) 
 VALUES 
   ('Meatball', 5), 
