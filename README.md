@@ -24,4 +24,24 @@
 
 <p>Cool I didnt need to uninstall python to make this work. Great!</p>
 
-### Creating Databases and Tables
+### Manipulating Databases
+
+To list available databases: ___show databases___;
+
+To create: ___CREATE DATABASE <name>;___
+To delete: ___DROP DATABASE <name>;___ * CAREFUL WITH THIS, it will delete everything *
+To use: ___USE <name>;___ | ___SELECT database();___ should confirm that its working.
+
+### Tables
+
+Tables hold the data:
+> A collection of related data held in a structured format within a database.
+
+### Data Types
+
+There is a whole bunch of Numeric Types, String Types and Date Types. Some need caution:
+- INT: range from -2,147,483,647 to 2,147,483,647
+- VARCHAT: a variable-length string e.g. 'coffee' or '-9999' or 'aASDJH daksjhdasj'. We can specify a maximum of chars e.g. varchar(100) to limit size.
+
+
+
