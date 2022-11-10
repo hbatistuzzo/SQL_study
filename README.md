@@ -77,3 +77,43 @@ VALUES
   ('Turkey', 1), 
   ('Potato Face', 15);
 
+
+By the way, we can tell a table that empty (NULL) values are not permitted when creating them:
+> CREATE TABLE cats2 (
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL
+);
+
+___good practice: always use single quotes!___
+
+... when needed e.g. ___INSERT INTO shops(name) VALUES 'mario's pizza'___ what you need is ___INSERT INTO shops(name) VALUES 'mario\'s pizza'___
+
+
+### To set default values:
+
+
+Define a table with a DEFAULT name specified:
+
+> CREATE TABLE cats3  (    
+>     name VARCHAR(20) DEFAULT 'no name provided',    
+>     age INT DEFAULT 99  
+> );
+
+Notice the change when you describe the table:
+
+> DESC cats3;
+
+Insert a cat without a name:
+
+> INSERT INTO cats3(age) VALUES(13);
+
+Or a nameless, ageless cat:
+
+> INSERT INTO cats3() VALUES();
+
+Combine NOT NULL and DEFAULT:
+
+> CREATE TABLE cats4  (    
+>     name VARCHAR(20) NOT NULL DEFAULT 'unnamed',    
+>     age INT NOT NULL DEFAULT 99 
+> );
