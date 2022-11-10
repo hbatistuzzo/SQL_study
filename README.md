@@ -43,5 +43,17 @@ There is a whole bunch of Numeric Types, String Types and Date Types. Some need 
 - INT: range from -2,147,483,647 to 2,147,483,647
 - VARCHAT: a variable-length string e.g. 'coffee' or '-9999' or 'aASDJH daksjhdasj'. We can specify a maximum of chars e.g. varchar(100) to limit size.
 
+### Create New Table:
+
+| Syntax                   | Example           |   |   |   |
+|--------------------------|-------------------|---|---|---|
+| CREATE TABLE <tablename> | CREATE TABLE cats |   |   |   |
+| (                        | (                 |   |   |   |
+| column_name data_type    | name VARCHAR(100) |   |   |   |
+| column_name data_type    | age INT           |   |   |   |
+| );                       | );                |   |   |   |
+
+
+
 
 
