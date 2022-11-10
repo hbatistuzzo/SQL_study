@@ -11,3 +11,9 @@
 			- SELECT * from movie_tables WHERE title LIKE "%story%" will find Toy Story, Toy Story 2 and Toy Story 3
 		- Use _ in a similar fashion, but to match exactly 1 character
 			- SELECT * FROM movies WHERE Title LIKE "WALL-_" will find WALL-E and WALL-G, but would not find WALL-EEE if it existed.
+
+
+---------
+
+TThe Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert
+
