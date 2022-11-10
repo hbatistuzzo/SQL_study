@@ -133,7 +133,7 @@ Combine NOT NULL and DEFAULT:
 
 ### KEYS
 
-We use a primary key e.g. CatID to make each entry unique. It's an unique identifier. ___ They cannot be NULL!!!___
+We use a primary key e.g. CatID to make each entry unique. It's an unique identifier. ___They cannot be NULL!!!___
 
 -- Another option would be:
 
@@ -154,7 +154,13 @@ We use a primary key e.g. CatID to make each entry unique. It's an unique identi
 > 	PRIMARY KEY (cat_id)	
 > );
 
+---
+---
 
+
+## CRUD
+
+- ___WHERE___ is case insensitive.
 
 
 
