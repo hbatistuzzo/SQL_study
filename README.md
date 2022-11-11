@@ -182,17 +182,33 @@ We use a primary key e.g. CatID to make each entry unique. It's an unique identi
 
 All to do with texts!
 
-	- CONCAT()
-		- Useful for joining, say, first and last names.
-			- SELECT CONCAT(author_fname, ' ',author_lname) FROM books; ___that ' ' is handy for inserting a blank space___
-	- CONCAT_WS() is another flavor
-		- first argument is separator. It goes between items.
-			- SELECT CONCAT_WS('-',author_fname,author_lname) AS full_name FROM books;
+- CONCAT()
+	- Useful for joining, say, first and last names.
+		- SELECT CONCAT(author_fname, ' ',author_lname) FROM books; ___that ' ' is handy for inserting a blank space___
+- CONCAT_WS() is another flavor
+	- first argument is separator. It goes between items.
+		- SELECT CONCAT_WS('-',author_fname,author_lname) AS full_name FROM books;
+
+- SUBSTRING
+	- SELECT SUBSTRING('Hello World'), 1, 4).
+		- Start at 1, go for the length of 4: 'Hell'.
+		- The 3rd argument can be ommited, it will just go to the end.
+	- SELECT SUBSTRING('Hello World'), -3).
+		- Would give 'rld'. It starts at -3 and go to the end.
+		
+___remember that you can combine string functions!___
+
+e.g.
+
+	SELECT CONCAT
+   	 (
+     	   SUBSTRING(title, 1, 10),
+    	    '...'
+  	  ) AS 'short title'
+	FROM books;
 
 
-
-
-
+nice
 
 
 
