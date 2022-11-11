@@ -208,9 +208,26 @@ e.g.
 	FROM books;
 
 
-nice
+- REPLACE
+	- this does NOT update rows. It's for the output. Case matters.
+		- SELECT REPLACE ('Hello World', 'Hell', '$&*@'); yields $&*@o World
+		- SELECT REPLACE('cheese bread coffee milk', ' ', ' and '); yields cheese and bread and coffeee and milk
+
+- REVERSE
+	- It's self explanatory come on.
+		- SELECT CONCAT(author_fname, REVERSE(author_fname)) FROM books;
+
+- CHAR_LENGTH
+	- not to be confused with LENGTH (that one is measured in bytes).
+		- SELECT CONCAT(author_lname, ' is ', CHAR_LENGTH(author_lname), ' characters long') FROM books;
 
 
+- UPPER and LOWER
+	- to change the casing.
+		- SELECT CONCAT('MY FAVORITE BOOK IS ', UPPER(title), ' !!!') FROM books;
 
+- Other useful ones:
+	- INSERT, LEFT, RIGHT, REPEAT, TRIM.
+		- TRIM is worth checking the documentation, to use LEADING.
 
 
