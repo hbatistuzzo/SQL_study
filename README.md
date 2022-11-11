@@ -138,10 +138,9 @@ We use a primary key e.g. CatID to make each entry unique. It's an unique identi
 -- Another option would be:
 
 > CREATE TABLE unique_cats2 (	
-> 	cat_id INT,	
+> 	cat_id INT PRIMARY KEY,	
 > 	name VARCHAR(100) NOT NULL,	
-> 	age INT NOT NULL,	
-> 	PRIMARY KEY (cat_id)	
+> 	age INT NOT NULL,
 > );
 
 
@@ -154,7 +153,7 @@ We use a primary key e.g. CatID to make each entry unique. It's an unique identi
 > 	PRIMARY KEY (cat_id)	
 > );
 
-===
+---
 
 
 ## CRUD
