@@ -231,3 +231,46 @@ e.g.
 		- TRIM is worth checking the documentation, to use LEADING.
 
 
+---
+
+### REFINING SELECTIONS
+
+#### DISTINCT
+
+- SELECT DISTINCT author_lname FROM books;
+	- works like "unique"
+
+what about distinct full names?
+
+- SELECT author_fname, author_lname FROM books;
+
+- SELECT DISTINCT(CONCAT(author_fname, ' ' ,author_lname)) FROM books; -- yields 12 results!
+	- This works, but even better...
+
+- SELECT DISTINTC (author_fname, author_lname) FROM books;
+
+
+#### ORDER BY
+
+- SELECT book_id, author_fname, author_lname FROM books ORDER BY author_lname;
+	- alphabetic by last name. NULL always come first
+	- NULL always come first.
+	- you can add DESC at the end to reverse the order.
+	- and you can group by more than 1 attribute
+
+#### LIMIT
+	- self-explanatory, but you can use LIMIT 2,3 (starting row, and how many you want to retreat).
+
+#### LIKE
+	- SELECT title, author_fname, author_lname FROM books WHERE author_fname = 'David'
+		- Has to be an EXACT MATCH!
+	- SELECT title, author_fname, author_lname FROM books WHERE author_fname LIKE '%Da%'; % implies 0 or more characters
+		- '_' will be a useful wildcard as well. It means exactly ONE character.
+	- SELECT * FROM books WHERE author_fname LIKE '____'; -- will retrieve all authors with a first name of 4 characters!
+		- btw use \ to escape wildcards.
+
+---
+
+### AGGREGATE FUNCTIONS
+
+	- Count basics
