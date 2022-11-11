@@ -4,7 +4,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/hbatistuzzo/SQL_study)
 
 
-# Tips
+# Tips!
 - Wildcards are extremely useful
 	- SELECT * from movie_tables WHERE title = "story" will find a movie whose title is EXACTLY story
 	- SELECT * from movie_tables WHERE title LIKE "story" will find a movie whose title is either story or Story or STORY etc
