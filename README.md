@@ -162,6 +162,16 @@ We use a primary key e.g. CatID to make each entry unique. It's an unique identi
 
 - ___WHERE___ is case insensitive.
 
+- UPDATE and SET go together.
+	- UPDATE <tablename> SET <attribute>.
+	- A WHERE <condition> might be useful.
+
+- A good rule of thumb is SELECTing before you UPDATE
+
+- DELETE FROM <tablename> WHERE <attributes> = 'something'
+	- DELETE FROM <tablename>; by itself will delete ___EVERYTHING___
+
+
 
 
 
