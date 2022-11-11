@@ -175,6 +175,23 @@ We use a primary key e.g. CatID to make each entry unique. It's an unique identi
 - DELETE FROM <tablename> WHERE <attributes> = 'something'
 	- DELETE FROM <tablename>; by itself will delete ___EVERYTHING___
 
+---
+
+
+### String Functions
+
+All to do with texts!
+
+	- CONCAT()
+		- Useful for joining, say, first and last names.
+			- SELECT CONCAT(author_fname, ' ',author_lname) FROM books; ___that ' ' is handy for inserting a blank space___
+	- CONCAT_WS() is another flavor
+		- first argument is separator. It goes between items.
+			- SELECT CONCAT_WS('-',author_fname,author_lname) AS full_name FROM books;
+
+
+
+
 
 
 
