@@ -154,8 +154,7 @@ We use a primary key e.g. CatID to make each entry unique. It's an unique identi
 > 	PRIMARY KEY (cat_id)	
 > );
 
----
----
+===
 
 
 ## CRUD
