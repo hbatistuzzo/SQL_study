@@ -1,5 +1,11 @@
+![GitHub top language](https://img.shields.io/github/languages/top/hbatistuzzo/SQL_study)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/hbatistuzzo/SQL_study)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/hbatistuzzo/SQL_study)
+![GitHub last commit](https://img.shields.io/github/last-commit/hbatistuzzo/SQL_study)
+
+
 # Tips
-3) Wildcards are extremely useful
+- Wildcards are extremely useful
 	- SELECT * from movie_tables WHERE title = "story" will find a movie whose title is EXACTLY story
 	- SELECT * from movie_tables WHERE title LIKE "story" will find a movie whose title is either story or Story or STORY etc
 		- Use % with LIKE to match a sequence of 0 or more characters
