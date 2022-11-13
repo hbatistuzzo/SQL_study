@@ -75,3 +75,4 @@ DELETE FROM shirts;
 DROP TABLE shirts;
 
 show tables;
+
