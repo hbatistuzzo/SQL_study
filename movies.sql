@@ -108,3 +108,40 @@ FROM series
 JOIN reviews on reviews.series_id = series.id
 GROUP BY genre;
 
+SELECT 
+    first_name,
+    last_name,
+    COUNT(rating) as count,
+    IFNULL(MIN(rating),0) as min,
+    IFNULL(MAX(rating),0) as max,
+    ROUND(IFNULL(AVG(rating),0),2) as avg,
+    CASE
+		WHEN COUNT(rating)> 0 THEN 'ACTIVE' ELSE 'INACTIVE'
+    END as status
+FROM
+    reviewers
+        LEFT JOIN
+    reviews ON reviewers.id = reviews.reviewer_id
+GROUP BY first_name , last_name;
+
+-- even better this way without case:
+SELECT 
+    first_name,
+    last_name,
+    COUNT(rating) as count,
+    IFNULL(MIN(rating),0) as min,
+    IFNULL(MAX(rating),0) as max,
+    ROUND(IFNULL(AVG(rating),0),2) as avg,
+    IF(COUNT(rating) > 0, 'ACTIVE','INACTIVE') as status
+FROM
+    reviewers
+        LEFT JOIN
+    reviews ON reviewers.id = reviews.reviewer_id
+GROUP BY first_name , last_name;
+
+
+SELECT title, rating, CONCAT(reviewers.first_name,' ',reviewers.last_name) as reviewer
+FROM reviews
+JOIN series on reviews.series_id = series.id
+LEFT JOIN reviewers on reviews.reviewer_id = reviewers.id;
+

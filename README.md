@@ -678,15 +678,13 @@ CREATE TABLE captions2 (
 	CREATE TABLE reviewers (
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL
-);
+    last_name VARCHAR(50) NOT NULL);
  
 	CREATE TABLE series (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(100),
     released_year YEAR,
-    genre VARCHAR(100)
-);
+    genre VARCHAR(100));
  
 	CREATE TABLE reviews (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -696,8 +694,7 @@ CREATE TABLE captions2 (
     FOREIGN KEY (series_id)
         REFERENCES series (id),
     FOREIGN KEY (reviewer_id)
-        REFERENCES reviewers (id)
-);
+        REFERENCES reviewers (id));
  
 	INSERT INTO series (title, released_year, genre) VALUES
     ('Archer', 2009, 'Animation'),
@@ -740,6 +737,6 @@ CREATE TABLE captions2 (
     (13,3,8.0),(13,4,7.2),
     (14,2,8.5),(14,3,8.9),(14,4,8.9);
 
-- Challenges on ´movies.sql´
+- Challenges on `movies.sql`;
 
 
