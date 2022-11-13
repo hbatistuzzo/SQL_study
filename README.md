@@ -351,26 +351,22 @@ CREATE TABLE captions2 (
 
 ### COMPARISON AND LOGICAL OPERATORS
 
-- Not equal:
+Not equal:
 
-	SELECT * FROM books
-	WHERE released_year != 2017;
+	SELECT * FROM books WHERE released_year != 2017;
 
 
-- Not like:
+Not like:
 
-	SELECT * FROM books
-	WHERE title NOT LIKE '%e%';
+	SELECT * FROM books WHERE title NOT LIKE '%e%';
 
-- Greater than:
+Greater than:
 
-	SELECT * FROM books
-	WHERE released_year > 2005;
+	SELECT * FROM books WHERE released_year > 2005;
  
-	SELECT * FROM books
-	WHERE pages > 500;
+	SELECT * FROM books WHERE pages > 500;
 
-- Less than or equal to:
+Less than or equal to:
 
 	SELECT * FROM books
 	WHERE pages < 200;
@@ -381,7 +377,7 @@ CREATE TABLE captions2 (
 	SELECT * FROM books
 	WHERE released_year <= 1985;
 
-- Logical AND:
+Logical AND:
 
 	SELECT title, author_lname, released_year FROM books
 	WHERE released_year > 2010
@@ -392,7 +388,7 @@ CREATE TABLE captions2 (
 	AND author_lname = 'Eggers'
 	AND title LIKE '%novel%';
 
-- Logical OR:
+Logical OR:
 
 	SELECT title, pages FROM books 
 	WHERE CHAR_LENGTH(title) > 30
@@ -410,7 +406,7 @@ CREATE TABLE captions2 (
 	WHERE pages < 200 
 	OR title LIKE '%stories%';
 
-- Between:
+Between:
 
 	SELECT title, released_year FROM books
 	WHERE released_year <= 2015
@@ -419,7 +415,8 @@ CREATE TABLE captions2 (
 	SELECT title, released_year FROM books
 	WHERE released_year BETWEEN 2004 AND 2014;
 
-- Comparing Dates
+Comparing Dates:
+
 	SELECT * FROM people WHERE birthtime 
 	BETWEEN CAST('12:00:00' AS TIME) 
 	AND CAST('16:00:00' AS TIME);
@@ -428,7 +425,7 @@ CREATE TABLE captions2 (
 	SELECT * FROM people WHERE HOUR(birthtime)
 	BETWEEN 12 AND 16;
 
-- The IN operator:
+The IN operator:
 
 	SELECT title, author_lname FROM books
 	WHERE author_lname = 'Carver' 
@@ -445,7 +442,7 @@ CREATE TABLE captions2 (
 	WHERE released_year >= 2000 
 	AND released_year % 2 = 1;
 
-- Case:
+Case:
 
 	SELECT title, released_year,
 	CASE
