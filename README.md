@@ -681,14 +681,14 @@ CREATE TABLE captions2 (
     last_name VARCHAR(50) NOT NULL
 );
  
-CREATE TABLE series (
+	CREATE TABLE series (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(100),
     released_year YEAR,
     genre VARCHAR(100)
 );
  
-CREATE TABLE reviews (
+	CREATE TABLE reviews (
     id INT PRIMARY KEY AUTO_INCREMENT,
     rating DECIMAL(2 , 1 ),
     series_id INT,
@@ -699,7 +699,7 @@ CREATE TABLE reviews (
         REFERENCES reviewers (id)
 );
  
-INSERT INTO series (title, released_year, genre) VALUES
+	INSERT INTO series (title, released_year, genre) VALUES
     ('Archer', 2009, 'Animation'),
     ('Arrested Development', 2003, 'Comedy'),
     ("Bob's Burgers", 2011, 'Animation'),
@@ -716,7 +716,7 @@ INSERT INTO series (title, released_year, genre) VALUES
     ('Stranger Things', 2016, 'Drama');
  
  
-INSERT INTO reviewers (first_name, last_name) VALUES
+	INSERT INTO reviewers (first_name, last_name) VALUES
     ('Thomas', 'Stoneman'),
     ('Wyatt', 'Skaggs'),
     ('Kimbra', 'Masters'),
@@ -726,7 +726,7 @@ INSERT INTO reviewers (first_name, last_name) VALUES
     ('Marlon', 'Crafford');
     
  
-INSERT INTO reviews(series_id, reviewer_id, rating) VALUES
+	INSERT INTO reviews(series_id, reviewer_id, rating) VALUES
     (1,1,8.0),(1,2,7.5),(1,3,8.5),(1,4,7.7),(1,5,8.9),
     (2,1,8.1),(2,4,6.0),(2,3,8.0),(2,6,8.4),(2,5,9.9),
     (3,1,7.0),(3,6,7.5),(3,4,8.0),(3,3,7.1),(3,5,8.0),
