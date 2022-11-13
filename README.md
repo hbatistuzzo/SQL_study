@@ -352,15 +352,18 @@ CREATE TABLE captions2 (
 ### COMPARISON AND LOGICAL OPERATORS
 
 - Not equal:
+
 	SELECT * FROM books
 	WHERE released_year != 2017;
 
 
 - Not like:
+
 	SELECT * FROM books
 	WHERE title NOT LIKE '%e%';
 
 - Greater than:
+
 	SELECT * FROM books
 	WHERE released_year > 2005;
  
@@ -368,6 +371,7 @@ CREATE TABLE captions2 (
 	WHERE pages > 500;
 
 - Less than or equal to:
+
 	SELECT * FROM books
 	WHERE pages < 200;
  
@@ -377,7 +381,8 @@ CREATE TABLE captions2 (
 	SELECT * FROM books
 	WHERE released_year <= 1985;
 
-- Logical AND
+- Logical AND:
+
 	SELECT title, author_lname, released_year FROM books
 	WHERE released_year > 2010
 	AND author_lname = 'Eggers';
@@ -387,7 +392,8 @@ CREATE TABLE captions2 (
 	AND author_lname = 'Eggers'
 	AND title LIKE '%novel%';
 
-- Logical OR
+- Logical OR:
+
 	SELECT title, pages FROM books 
 	WHERE CHAR_LENGTH(title) > 30
 	AND pages > 500;
@@ -404,7 +410,8 @@ CREATE TABLE captions2 (
 	WHERE pages < 200 
 	OR title LIKE '%stories%';
 
-- Between
+- Between:
+
 	SELECT title, released_year FROM books
 	WHERE released_year <= 2015
 	AND released_year >= 2004;
@@ -421,7 +428,8 @@ CREATE TABLE captions2 (
 	SELECT * FROM people WHERE HOUR(birthtime)
 	BETWEEN 12 AND 16;
 
-- The IN operator
+- The IN operator:
+
 	SELECT title, author_lname FROM books
 	WHERE author_lname = 'Carver' 
 	OR author_lname = 'Lahiri'
@@ -437,7 +445,8 @@ CREATE TABLE captions2 (
 	WHERE released_year >= 2000 
 	AND released_year % 2 = 1;
 
-- Case
+- Case:
+
 	SELECT title, released_year,
 	CASE
 		WHEN released_year >= 2000 THEN 'modern lit'
