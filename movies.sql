@@ -65,4 +65,46 @@ INSERT INTO reviews(series_id, reviewer_id, rating) VALUES
     (13,3,8.0),(13,4,7.2),
     (14,2,8.5),(14,3,8.9),(14,4,8.9);
     
-    
+SELECT * from reviewers;
+
+SELECT * from reviews;
+
+SELECT * from series;
+
+SELECT 
+    title, rating
+FROM
+    series
+        JOIN
+    reviews ON reviews.series_id = series.id;
+
+SELECT 
+    title, ROUND(AVG(rating), 2)
+FROM
+    series
+        JOIN
+    reviews ON reviews.series_id = series.id
+GROUP BY title
+ORDER BY AVG(rating);
+
+SELECT 
+    first_name, last_name, rating
+FROM
+    reviewers
+        JOIN
+    reviews ON reviewers.id = reviews.reviewer_id;
+
+SELECT 
+    title AS unreviewed_series
+FROM
+    series
+        LEFT JOIN -- this LEFT JOIN will also keep Malcolm in the Middle and Pushing Daisies which have no reviews;
+    reviews ON reviews.series_id = series.id
+WHERE
+    rating IS NULL;
+
+SELECT genre, ROUND(AVG(rating),2) as avg_rating
+FROM series
+JOIN reviews on reviews.series_id = series.id
+GROUP BY genre;
+
