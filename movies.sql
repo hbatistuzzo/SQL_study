@@ -140,8 +140,16 @@ FROM
 GROUP BY first_name , last_name;
 
 
-SELECT title, rating, CONCAT(reviewers.first_name,' ',reviewers.last_name) as reviewer
-FROM reviews
-JOIN series on reviews.series_id = series.id
-LEFT JOIN reviewers on reviews.reviewer_id = reviewers.id;
+SELECT 
+    title,
+    rating,
+    CONCAT(reviewers.first_name,
+            ' ',
+            reviewers.last_name) AS reviewer
+FROM
+    reviews
+        JOIN
+    series ON reviews.series_id = series.id
+        LEFT JOIN
+    reviewers ON reviews.reviewer_id = reviewers.id;
 
