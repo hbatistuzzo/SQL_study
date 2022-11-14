@@ -782,29 +782,29 @@ SELECT * FROM series ORDER BY released_year;
     title, 
     AVG(rating),
     COUNT(rating) AS review_count
-FROM full_reviews 
-GROUP BY title HAVING COUNT(rating) > 1;
+	FROM full_reviews 
+	GROUP BY title HAVING COUNT(rating) > 1;
 
 #### ROLLUP is super useful
 
 	SELECT 
     title, AVG(rating)
-FROM
+	FROM
     full_reviews
-GROUP BY title WITH ROLLUP;
+	GROUP BY title WITH ROLLUP;
  
  
 	SELECT 
     title, COUNT(rating)
-FROM
+	FROM
     full_reviews
-GROUP BY title WITH ROLLUP;
+	GROUP BY title WITH ROLLUP;
  
  
 	SELECT 
     first_name, released_year, genre, AVG(rating)
-FROM
+	FROM
     full_reviews
-GROUP BY released_year , genre , first_name WITH ROLLUP;
+	GROUP BY released_year , genre , first_name WITH ROLLUP;
 
 
