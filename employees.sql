@@ -67,3 +67,9 @@ SELECT
 FROM employees
 ORDER BY department;
 
+SELECT * FROM employees;
+
+SELECT * FROM employees WHERE department REGEXP '^cust';
+
+SELECT * FROM employees WHERE department REGEXP 'ice$';
+
