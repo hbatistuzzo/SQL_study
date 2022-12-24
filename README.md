@@ -905,3 +905,7 @@ SELECT INITCAP(firstname || ' ' || lastname) also concatenates strings... Even b
 - rank() OVER (ORDER BY sum(points) DESC) AS rank
 	- if you RANK() OVER (PARTITION BY etc) then you must group by later
 	- it seems it's useful to RANK() OVER (ORDER BY already)
+
+- If you are not actually pulling rows from another table (but has a condition that uses another table), IN is useful:
+SELECT id,name FROM departments d
+WHERE id IN (SELECT department_id FROM sales WHERE price > 98.00);
