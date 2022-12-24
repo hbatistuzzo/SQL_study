@@ -935,11 +935,56 @@ They can be distinguished in the way they return the first argument as result. I
 
 # Sub-query refactoring or CTE's:
 
-'''
-WITH special_sales AS
-  (select * from sales where price > 90)
-  
-  select id, name from departments
-  
-WHERE id IN (SELECT department_id FROM special_sales)
-'''
+```
+-- Create your SELECT statement here
+WITH special_sales (id, name)  
+AS  
+-- Define the CTE query.  
+(  
+    SELECT d.id, d.name
+    FROM sales s
+    INNER JOIN departments d
+    ON s.department_id = d.id
+    WHERE s.price > 90  
+)  
+-- Define the outer query referencing the CTE name.  
+SELECT DISTINCT id, name
+FROM special_sales
+ORDER BY id
+```
+
+- Relational division: Find all movies two actors cast in together. This one is super important
+	- you must join the film_actor table 2 times!!!
+```
+Select f.title
+From film f
+Join film_actor a1
+On f.film_id = a1.film_id
+Join film_actor a2
+On f.film_id = a2.film_id
+Where a1.actor_id = 105
+And a2.actor_id = 122
+Order by f.title;
+```
+
+or....
+
+```
+SELECT f.title
+FROM film f
+JOIN film_actor fa on fa.film_id = f.film_id
+WHERE fa.actor_id IN (105,122)
+GROUP BY f.film_id
+HAVING COUNT(*) = 2
+ORDER BY f.title ASC
+```
+
+- Calculating Running Total. This one is important too for using OVER
+```
+SELECT
+  DATE(created_at) as date,
+  COUNT(*) as count,
+  (sum(count(*)) OVER (ORDER BY date(created_at)))::INT as total
+FROM posts
+GROUP BY date;
+```
