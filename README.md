@@ -917,3 +917,13 @@ WHERE id IN (SELECT department_id FROM sales WHERE price > 98.00);
 	-  COALESCE( NULLIF(s.name, ''), '[product name not found]' ) AS name
 	- ie If name is an empty string, you must replace with '[product name not found]'.
 
+- COALESCE(this_column, that_column): This returns the value from the first argument, if there is one.
+	- If it’s NULL, return the second argument (in this case, the value of a different column).
+	- Best used when you’re assured of at least one non-null value and extremely handy with an as attribute_name to resolve the ambiguity around preferred/default attributes.
+
+- The syntax of IFNULL()
+	- IFNULL(expression1, expression2)
+- The syntax of NULLIF()
+	- NULLIF(expression1, expression2)
+
+They can be distinguished in the way they return the first argument as result. IFNULL() function will return the first argument as a result if it is not NULL and NULLIF() function will return the first argument as a result if both the arguments are not same.
