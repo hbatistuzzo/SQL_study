@@ -909,3 +909,6 @@ SELECT INITCAP(firstname || ' ' || lastname) also concatenates strings... Even b
 - If you are not actually pulling rows from another table (but has a condition that uses another table), IN is useful:
 SELECT id,name FROM departments d
 WHERE id IN (SELECT department_id FROM sales WHERE price > 98.00);
+
+- COUNT(*) FILTER (WHERE staff_id = 1) AS mike_count
+	- last time you forgot the FILTER FUNCTION
