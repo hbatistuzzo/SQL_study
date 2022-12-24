@@ -883,3 +883,25 @@ ORDER BY department;
 ---
 
 ### INSTAGRAM DATABASE CLONE
+
+---
+
+#Notes
+
+- concat_ws = concat WITH SPACES!
+	- Dont forget the syntax: concat_ws(' ', firstname, lastname)
+
+- POSITION(',' IN characteristics) will find the position of the FIRST comma in the string values of the characteristics column
+
+- INITCAP(firstname) will capitalize only the first letter.
+- UPPER capitalizes everything.
+
+SELECT INITCAP(firstname || ' ' || lastname) also concatenates strings... Even better I think
+
+- REPEAT(column_name of strings,3) - repeat 3 times
+
+- REVERSE(column_name of strings)
+
+- rank() OVER (ORDER BY sum(points) DESC) AS rank
+	- if you RANK() OVER (PARTITION BY etc) then you must group by later
+	- it seems it's useful to RANK() OVER (ORDER BY already)
