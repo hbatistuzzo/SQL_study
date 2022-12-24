@@ -932,3 +932,12 @@ They can be distinguished in the way they return the first argument as result. I
 
 - ROUND(AVG(j.salary),2)::FLOAT 
 	- the syntax ::FLOAT works as CAST AS FLOAT
+
+'''
+WITH special_sales AS
+  (select * from sales where price > 90)
+  
+  select id, name from departments
+  
+WHERE id IN (SELECT department_id FROM special_sales)
+'''
