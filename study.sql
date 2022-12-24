@@ -178,3 +178,11 @@ SELECT a.*
 FROM doctors a
 JOIN doctors b on a.id <> b.id -- THIS IS NEW!!!!! the primary key MUST NOT be the same otherwise I'm comparing the same people
 WHERE a.hospital = b.hospital AND a.speciality != b.speciality;
+
+SELECT a.*
+FROM doctors a
+JOIN doctors b on a.id <> b.id
+WHERE a.hospital = b.hospital; -- this is for the extra exercise 4b
+
+
+
