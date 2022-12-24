@@ -912,3 +912,8 @@ WHERE id IN (SELECT department_id FROM sales WHERE price > 98.00);
 
 - COUNT(*) FILTER (WHERE staff_id = 1) AS mike_count
 	- last time you forgot the FILTER FUNCTION
+
+- NULLIF(s.name, '') : if name is NULL, return NULL
+	-  COALESCE( NULLIF(s.name, ''), '[product name not found]' ) AS name
+	- ie If name is an empty string, you must replace with '[product name not found]'.
+
