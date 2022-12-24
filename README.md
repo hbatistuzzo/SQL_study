@@ -991,3 +991,17 @@ GROUP BY date;
 
 
 ---
+
+- Exercise 5: CASE WHEN, window function (with LEAD), DISTINCT:
+
+```
+SELECT DISTINCT user_name
+FROM (
+	SELECT *,
+	CASE WHEN(user_name = LEAD(user_name) OVER (ORDER BY login_id) AND user_name = LEAD(user_name,2) OVER (ORDER BY login_id)) -- needs a OVER clause since it is a window function. Its a single partition but we order by
+	THEN user_name
+	ELSE null
+	END AS repeated_users
+	FROM login_details) x -- this works great as a window_function. Stewart and James are the users who logged in 3 or more times.
+WHERE x.repeated_users IS NOT null;
+```
