@@ -118,3 +118,36 @@ WHERE x.rn = 2;
 -- )
 -- SELECT * FROM x
 -- WHERE x.SALARY > 9000;
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+-- 3)
+
+-- Write a SQL query to display only the details of employees who either earn the highest salary or the lowest salary in each department from the employee table.
+
+WITH w as 
+(SELECT *,
+MAX(salary) OVER (PARTITION BY dept_name) AS max_salary,
+MIN(salary) OVER (PARTITION BY dept_name) AS min_salary
+FROM employee)
+SELECT *
+FROM w
+WHERE salary = max_salary OR salary = min_salary
+ORDER BY dept_name, salary;
+
+-- His crazy solution uses a JOIN
+select x.*
+from employee e
+join (select *,
+max(salary) over (partition by dept_name) as max_salary,
+min(salary) over (partition by dept_name) as min_salary
+from employee) x
+on e.emp_id = x.emp_id
+and (e.salary = x.max_salary or e.salary = x.min_salary)
+order by x.dept_name, x.salary;
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+-- 3)
