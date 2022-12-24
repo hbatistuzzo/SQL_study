@@ -927,3 +927,8 @@ WHERE id IN (SELECT department_id FROM sales WHERE price > 98.00);
 	- NULLIF(expression1, expression2)
 
 They can be distinguished in the way they return the first argument as result. IFNULL() function will return the first argument as a result if it is not NULL and NULLIF() function will return the first argument as a result if both the arguments are not same.
+
+---
+
+- ROUND(AVG(j.salary),2)::FLOAT 
+	- the syntax ::FLOAT works as CAST AS FLOAT
