@@ -1,3 +1,5 @@
+-- Exercises from https://techtfq.com/blog/learn-how-to-write-sql-queries-practice-complex-sql-queries
+
 USE study;
 
 -- Tables Structure:
@@ -51,5 +53,7 @@ ORDER BY user_id
 SELECT * from x
 WHERE x.rn != 1;
 
+-- When to use one or the other is still unclear...
 
--- When to use one or the other is still unclear
+
+
