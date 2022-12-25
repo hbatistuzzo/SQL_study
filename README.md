@@ -992,7 +992,7 @@ GROUP BY date;
 
 ---
 
-- Exercise 5: CASE WHEN, window function (with LEAD), DISTINCT:
+- Exercise 5: CASE WHEN, non-aggregate window function (with LEAD), DISTINCT:
 
 ```
 SELECT DISTINCT user_name
@@ -1005,3 +1005,5 @@ FROM (
 	FROM login_details) x -- this works great as a window_function. Stewart and James are the users who logged in 3 or more times.
 WHERE x.repeated_users IS NOT null;
 ```
+
+
