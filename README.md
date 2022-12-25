@@ -1007,3 +1007,29 @@ WHERE x.repeated_users IS NOT null;
 ```
 
 
+- Exercise 7: CASE WHEN, non-aggregate window function (with LEAD and LAG):
+
+```
+SELECT x.* FROM
+(SELECT * FROM weather
+WHERE temperature < 0) AS x;
+SELECT x.* FROM
+(SELECT *,
+CASE -- all in all, use CASE when you need to compare data between different rows
+	WHEN temperature < 0
+		AND LEAD(temperature) OVER (ORDER BY day) < 0
+		AND LEAD(temperature,2) OVER (ORDER BY day) < 0
+	THEN 'YES'
+	WHEN temperature < 0
+		AND LAG(temperature) OVER (ORDER BY day) < 0
+		AND LEAD(temperature) OVER (ORDER BY day) < 0
+	THEN 'YES'
+    	WHEN temperature < 0
+		AND LAG(temperature,2) OVER (ORDER BY day) < 0
+		AND LAG(temperature) OVER (ORDER BY day) < 0
+	THEN 'YES'
+    ELSE NULL
+END AS flag
+FROM weather) AS x
+WHERE flag = 'YES';
+```

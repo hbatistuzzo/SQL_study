@@ -256,18 +256,58 @@ select * from students;
 
 select id,student_name,
 CASE
-	WHEN id%2 <> 0 then lead(student_name, 1,student_name) over(order by id) -- if it's odd
-	WHEN id%2 = 0 then lag(student_name) over(order by id) end as new_student_name -- if it's even
+	WHEN id%2 <> 0 THEN lead(student_name, 1,student_name) over(order by id) -- if it's odd
+	WHEN id%2 = 0 THEN lag(student_name) over(order by id) end as new_student_name -- if it's even
 from students;
-
-
-
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- 7)
 
+drop table weather;
+create table weather
+(
+id int,
+city varchar(50),
+temperature int,
+day date
+);
+delete from weather;
+insert into weather values
+(1, 'London', -1, str_to_date('2021 January 01','%Y %M %d')),
+(2, 'London', -2, str_to_date('2021 January 02','%Y %M %d')),
+(3, 'London', 4, str_to_date('2021 January 03','%Y %M %d')),
+(4, 'London', 1, str_to_date('2021 January 04','%Y %M %d')),
+(5, 'London', -2, str_to_date('2021 January 05','%Y %M %d')),
+(6, 'London', -5, str_to_date('2021 January 06','%Y %M %d')),
+(7, 'London', -7, str_to_date('2021 January 07','%Y %M %d')),
+(8, 'London', 5, str_to_date('2021 January 08','%Y %M %d'));
+
+select * from weather;
+
+SELECT x.* FROM
+(SELECT * FROM weather
+WHERE temperature < 0) AS x;
+SELECT x.* FROM
+(SELECT *,
+CASE -- all in all, use CASE when you need to compare data between different rows
+	WHEN temperature < 0
+		AND LEAD(temperature) OVER (ORDER BY day) < 0
+		AND LEAD(temperature,2) OVER (ORDER BY day) < 0
+	THEN 'YES'
+	WHEN temperature < 0
+		AND LAG(temperature) OVER (ORDER BY day) < 0
+		AND LEAD(temperature) OVER (ORDER BY day) < 0
+	THEN 'YES'
+    	WHEN temperature < 0
+		AND LAG(temperature,2) OVER (ORDER BY day) < 0
+		AND LAG(temperature) OVER (ORDER BY day) < 0
+	THEN 'YES'
+    ELSE NULL
+END AS flag
+FROM weather) AS x
+WHERE flag = 'YES';
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
