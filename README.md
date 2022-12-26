@@ -1052,4 +1052,23 @@ name VARCHAR(30) NOT NULL
 FOREIGN KEY (mgrId) REFERENCES employees(id)
 ```
 
-**oh god 2**
+**aughhhh**
+
+A restaurant keeps track of the ingredients used in each recipe using the following two tables:
+
+```
+TABLE recipes
+	id INTEGER PRIMARY KEY NOT NULL
+	name VARCHAR(50) NOT NULL
+	cost DECIMAL(5,2) NOT NULL
+```
+
+```
+TABLE ingredients
+	id INTEGER PRIMARY KEY NOT NULL
+	name VARCHAR(50) NOT NULL
+	recipeId INTEGER NOT NULL
+	FOREIGN KEY (recipeId) REFERENCES recipes(id)
+```
+
+Write an SQL update query that will increase by $2 the cost of all recipes that have an ingredient whose name exactly matches "tuna"
