@@ -1033,3 +1033,23 @@ END AS flag
 FROM weather) AS x
 WHERE flag = 'YES';
 ```
+
+---
+---
+---
+
+CW exam:
+
+**oh god 1**
+- Given the following data definition, write a query that selects the names of all employees and the names of their managers.
+If there is no manager for an employee, return NULL. Managers are considered to be employees as well.
+
+```
+TABLE employees
+id INTEGER NOT NULL PRIMARY KEY
+mgrId INTEGER
+name VARCHAR(30) NOT NULL
+FOREIGN KEY (mgrId) REFERENCES employees(id)
+```
+
+**oh god 2**
